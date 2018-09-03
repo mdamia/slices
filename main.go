@@ -2,18 +2,25 @@ package main
 
 import (
 	"log"
-
-	"github.com/mdamia/slices/slice"
-	"github.com/mdamia/slices/utils"
 )
 
 func main() {
-	people := []string{}
-	people = slice.AddPerson(people, "jacob")
+	cards := newDeck()
 
-	for _, person := range people {
-		log.Println(utils.FirstToUC(person))
+	log.Println(writeByte(cards))
 
+	// // shuffl deck
+	// perm := shuffleDeck(cards)
+	// // return hand and remainign cards in deck
+	// hand, deck := deal(perm, 1)
+
+}
+
+func writeByte(d deck) (b []byte) {
+
+	for _, card := range d {
+		b = []byte(card)
 	}
 
+	return b
 }
